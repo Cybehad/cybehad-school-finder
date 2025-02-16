@@ -21,8 +21,7 @@ new class extends Component {
                     <img src="" alt="{{ $school->name }}" height="30" width="30">
                     <p>{{ \Illuminate\Support\Str::limit($school->description, 160, '...') }} Lorem ipsum dolor sit
                         amet, consectetur adipisicing elit. Alias aut autem consequuntur doloremque dolorum
-                        exercitationem, fuga in maiores, neque nesciunt nulla odit pariatur porro saepe sed sit suscipit
-                        temporibus, velit.</p>
+                        </p>
                 </a>
                 <div class="mt-6 flex flex-row justify-between">
                     <a href="{{ route('schools.show', [$school->id]) }}"
