@@ -12,7 +12,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class School extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
+
     protected $guarded = ['id'];
+
+    public function casts(): array
+    {
+        return [
+            'has_nursery' => 'boolean',
+            'has_primary' => 'boolean',
+            'has_uce' => 'boolean',
+            'has_uace' => 'boolean',
+        ];
+    }
 
     public function user(): BelongsTo
     {
@@ -33,4 +44,5 @@ class School extends Model
     {
         return $this->hasMany(Results::class);
     }
+
 }

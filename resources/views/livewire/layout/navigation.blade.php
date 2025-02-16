@@ -5,13 +5,9 @@ use Livewire\Volt\Component;
 
 new class extends Component
 {
-    /**
-     * Log the current user out of the application.
-     */
     public function logout(Logout $logout): void
     {
         $logout();
-
         $this->redirect('/', navigate: true);
     }
 }; ?>
@@ -23,16 +19,25 @@ new class extends Component
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}" wire:navigate>
+                    <a href="{{ route('home') }}" wire:navigate>
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
-
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @admin
+                    <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')" wire:navigate>
+                        {{ __('Admin') }}
+                    </x-nav-link>
+                    @endadmin
+                    <x-nav-link :href="route('schools')" :active="request()->routeIs('schools')" wire:navigate>
+                        {{ __('Schools') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 

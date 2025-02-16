@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Region extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
+    protected $guarded = ['id'];
 
     public function districts(): HasMany
     {

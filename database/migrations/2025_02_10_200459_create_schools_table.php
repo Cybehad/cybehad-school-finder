@@ -2,6 +2,7 @@
 
 use App\Models\District;
 use App\Models\Region;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,13 +16,16 @@ return new class extends Migration
     {
         Schema::create('schools', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->foreignIdFor(User::class);
             $table->foreignIdFor(Region::class);
             $table->foreignIdFor(District::class);
             $table->string('name');
+            $table->text('description');
             $table->boolean('has_nursery');
             $table->boolean('has_primary');
             $table->boolean('has_uce');
             $table->boolean('has_uace');
+            $table->string('type')->nullable();
             $table->string('email')->unique();
             $table->string('website')->unique();
             $table->string('phone')->unique();
